@@ -13,7 +13,7 @@ class SwtichBloc extends Bloc<SwtichBlocEvent, SwtichBlocState> {
   }
 
   void _controlOpacity(controlOpacityEvent event, Emitter<SwtichBlocState> emit) {
-   
+      print( "value is ${event.value}");
       emit(state.copyWith(value: event.value));
   }
 }

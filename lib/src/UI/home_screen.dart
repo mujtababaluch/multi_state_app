@@ -16,11 +16,13 @@ class HomeScreen extends StatelessWidget {
       body:  Column(
         children: [
           BlocBuilder<SwtichBloc,SwtichBlocState>(
+            buildWhen: (previous, current) => previous.isEnabled != current.isEnabled,
             builder: (context, state) =>   Switch(
               value:  state.isEnabled,
              onChanged: (value) => context.read<SwtichBloc>().add(enableordisableNotification())),),
 
           BlocBuilder<SwtichBloc,SwtichBlocState>(
+            buildWhen:  (previous, current) => previous.value != current.value,
             builder: (context, state) {
               return  Container(
           color: Colors.deepPurple.withOpacity(state.value),
@@ -28,7 +30,9 @@ class HomeScreen extends StatelessWidget {
           );
             },
           ),
-          BlocBuilder<SwtichBloc,SwtichBlocState>(builder:  (context, state) => Slider(
+          BlocBuilder<SwtichBloc,SwtichBlocState>(
+            buildWhen: (previous, current) => previous.value != current.value,
+            builder:  (context, state) => Slider(
             value: state.value,
             onChanged: (value) => context.read<SwtichBloc>().add(controlOpacityEvent(value)),
           )),
