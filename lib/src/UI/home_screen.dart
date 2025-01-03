@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:multistateapp/src/Bloc/bloc/swtich_bloc_bloc.dart';
+import 'package:multistateapp/src/Bloc/bloc/swtich_bloc_event.dart';
+import 'package:multistateapp/src/Bloc/bloc/swtich_bloc_state.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -11,7 +15,11 @@ class HomeScreen extends StatelessWidget {
       ),
       body:  Column(
         children: [
-          Switch(value: true, onChanged: (value) {}),
+          BlocBuilder<SwtichBloc,SwtichBlocState>(
+            builder: (context, state) =>   Switch(
+              value:  state.isEnabled,
+             onChanged: (value) => context.read<SwtichBloc>().add(enableordisableNotification())),)
+        
         ],
       ),
     );
