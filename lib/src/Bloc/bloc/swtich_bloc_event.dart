@@ -8,6 +8,6 @@ sealed class SwtichBlocEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class enableNotification extends SwtichBlocEvent {}
+class enableordisableNotification extends SwtichBlocEvent {}
 
-class disabNotification extends SwtichBlocEvent {}
+
