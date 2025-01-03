@@ -2,11 +2,13 @@ import 'package:equatable/equatable.dart';
 
   class SwtichBlocState extends Equatable {
   final bool isEnabled;
-  const SwtichBlocState({this.isEnabled = false});
+  final double value;
+  const SwtichBlocState({this.isEnabled = false, this.value = 0.0});
   
-  SwtichBlocState copyWith({bool? isEnabled}) {
+  SwtichBlocState copyWith({bool? isEnabled, double? value}) {
     return SwtichBlocState(
       isEnabled: isEnabled ?? this.isEnabled,
+      value: value ?? this.value,
     );
   }
   @override
