@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:multistateapp/src/Bloc/bloc/swtich_bloc_bloc.dart';
-import 'package:multistateapp/src/Bloc/bloc/swtich_bloc_event.dart';
-import 'package:multistateapp/src/Bloc/bloc/swtich_bloc_state.dart';
+import 'package:multistateapp/src/Bloc/Swtich/swtich_bloc_bloc.dart';
+import 'package:multistateapp/src/Bloc/Swtich/swtich_bloc_event.dart';
+import 'package:multistateapp/src/Bloc/Swtich/swtich_bloc_state.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

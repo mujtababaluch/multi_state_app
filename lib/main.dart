@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'src/Bloc/bloc/swtich_bloc_bloc.dart';
+import 'src/Bloc/Swtich/swtich_bloc_bloc.dart';
 import 'src/UI/home_screen.dart';
 
 void main() {
