@@ -17,9 +17,13 @@ class HomeScreen extends StatelessWidget {
         children: [
           BlocBuilder<SwtichBloc,SwtichBlocState>(
             buildWhen: (previous, current) => previous.isEnabled != current.isEnabled,
-            builder: (context, state) =>   Switch(
-              value:  state.isEnabled,
-             onChanged: (value) => context.read<SwtichBloc>().add(enableordisableNotification())),),
+            builder: (context, state){
+               print("rebuilding slider state2");
+              return Switch(
+                value: state.isEnabled,
+                onChanged: (value) => context.read<SwtichBloc>().add(enableordisableNotification()),
+              );
+            },),
 
           BlocBuilder<SwtichBloc,SwtichBlocState>(
             buildWhen:  (previous, current) => previous.value != current.value,
@@ -32,10 +36,16 @@ class HomeScreen extends StatelessWidget {
           ),
           BlocBuilder<SwtichBloc,SwtichBlocState>(
             buildWhen: (previous, current) => previous.value != current.value,
-            builder:  (context, state) => Slider(
-            value: state.value,
-            onChanged: (value) => context.read<SwtichBloc>().add(controlOpacityEvent(value)),
-          )),
+            builder:  (context, state)  {
+              print("rebuilding slider state");
+              return Slider(
+                value: state.value,
+  onChanged: (value) {
+        print('Slider moved to $value');
+        // Dispatching the event
+        context.read<SwtichBloc>().add(controlOpacityEvent(value));
+      },              );
+            }),
           
         ],
       ),
